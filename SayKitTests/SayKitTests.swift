@@ -3,7 +3,7 @@
 //  SayKitTests
 //
 //  Created by Jeong YunWon on 2015. 4. 13..
-//  Copyright (c) 2015년 youknowone.org. All rights reserved.
+//  Copyright (c) 2015 youknowone.org. All rights reserved.
 //
 
 import Cocoa
@@ -24,13 +24,6 @@ class SayKitTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }

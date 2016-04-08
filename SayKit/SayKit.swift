@@ -1,9 +1,9 @@
 //
-//  Say.swift
-//  VoiceForYou
+//  SayKit.swift
+//  SayKit
 //
 //  Created by Jeong YunWon on 2015. 4. 10..
-//  Copyright (c) 2015년 youknowone.org. All rights reserved.
+//  Copyright (c) 2015 youknowone.org. All rights reserved.
 //
 
 import Cocoa
@@ -44,13 +44,13 @@ public class SKVoice: NSObject {
         task.waitUntilExit()
 
         var error: NSError? = nil
-        let regex = NSRegularExpression(pattern: "(.*?) {4,}([a-z]{2,3}_[A-Z]{2,}) +# (.*)", options: NSRegularExpressionOptions.UseUnicodeWordBoundaries, error: &error)!
+        let regex = try! NSRegularExpression(pattern: "(.*?) {4,}([a-z]{2,3}_[A-Z]{2,}) +# (.*)", options: NSRegularExpressionOptions.UseUnicodeWordBoundaries)
         assert(error == nil)
         let data = output.fileHandleForReading.readDataToEndOfFile()
         let string = NSString(data: data, encoding: NSUTF8StringEncoding)!
 
         var voices: [SKVoice] = []
-        for match in regex.matchesInString(string as String, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, string.length)) {
+        for match in regex.matchesInString(string as String, options: NSMatchingOptions(), range: NSMakeRange(0, string.length)) {
             let name = string.substringWithRange(match.rangeAtIndex(1))
             let locale = string.substringWithRange(match.rangeAtIndex(2))
             let comment = string.substringWithRange(match.rangeAtIndex(3))
@@ -114,7 +114,7 @@ public class SKSay: NSObject {
     }
 
     func composeArguments() {
-        var arguments: [AnyObject] = []
+        var arguments: [String] = []
         if let voice = self.voice {
             arguments.append("-v")
             arguments.append(voice.name)
