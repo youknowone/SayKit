@@ -3,7 +3,7 @@
 //  SayKit
 //
 //  Created by Jeong YunWon on 2015. 4. 13..
-//  Copyright (c) 2015년 youknowone.org. All rights reserved.
+//  Copyright (c) 2015 youknowone.org. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

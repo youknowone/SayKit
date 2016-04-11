@@ -7,8 +7,9 @@
 *.xcodeproj/*.mode1v3
 *.xcodeproj/*.pbxuser
 *.xcodeproj/*.perspectivev3
-*xcuserdata
-*.xcworkspace*
+xcuserdata
+*.xcworkspace
+build
 
 Podfile.lock
 Pods
